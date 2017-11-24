@@ -29,18 +29,9 @@ typedef struct Node {
   int prr;
   int number_of_keys;
   struct Node indices[kMaxKeys];
-  struct Node *sons[kMaxKeys + 1];
+  struct Node* sons[kMaxKeys + 1];
 } BTree;
 
-BTree* CreateTree() {
-  BTree p = (BTree*) malloc (sizeof(BTree));
-  if (p == NULL) {
-    printf("Erro ao alocar memoria. Finalizando");
-    exit(-1);
-  }
-  p->is_leaf = 1;
-  p->number_of_keys = 0;
-  return p;
-}
+BTree* CreateTree();
 
 #endif /* B_TREE_H_ */
