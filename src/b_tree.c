@@ -30,3 +30,20 @@ BTree* CreateTree() {
   p->number_of_keys = 0;
   return p;
 }
+
+void DestroyTree(BTree* tree) {
+  if (!tree->is_leaf) {
+    for (int i = 0; i < tree->number_of_keys; i++) {
+      DestroyTree(tree->sons[i]);
+    }
+  }
+  free(tree);
+}
+
+BTree* AddElement(int primary_key, int nnr, BTree* tree) {
+  if (tree->is_leaf) {
+    if (tree->number_of_keys < kMaxKeys) {
+      tree->number_of_keys++;
+    }
+  }
+}
